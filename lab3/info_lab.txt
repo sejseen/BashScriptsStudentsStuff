@@ -1,0 +1,50 @@
+Temat Komenda 'find' oraz uprawnienia w systemie 
+
+Określa zbiór plików a następnie przetwarza każdy z nich zgodnie z podanym wyrażeniem. 
+Można wywołać bez żadnych argumentów, wówczas mamy find . -print
+
+3 Podstawowe grupy argumentów : opcje podstawowe, ścieżki poszukiwań, wyrażenia testowe
+
+
+W przypadku symlinkow powinnsmy jasno zdefiniowac czy 
+-P nie podążamy za symlinkami
+-L podążamy za symlinkami, wówczas poniżesz działania są zupełnie inne:
+find -P link -print
+find -L link -print
+Jeśli podążamy za symlnikami to testowane będą właściwości celu symlinka a nie sam symlink.
+
+Komenda find bierze pod uwagę wszystkie zagnieżdzone podkatalogi, całe drzewo przeszukiwań, gdy podamy find katalog zostanie przeszukane całe drzewo:
+katalog
+katalog/plik
+katalog/podkatalog
+katalog/podkatalog/plik2
+katalog/podkatalog/podpodkatalog
+
+Istnieje komenda tree (wyświetlanie drzew katalogowych)
+
+# Wyrażenia testowe(najważniejsza i najbardziej skomplikowana część komendy find)
+
+Określają jakie właściwości należy zbadać i jakie czynności należy podjąć. Wyrazenie ma charakter logicznych.
+Standardowe operatory:
+1) AND -and, -a, lub brak opreratora(trzy formy są równoważne)
+
+elem1 -and elem2 -and elem3
+elem1 -a elem2 -a elem3
+elem1 elem2 elem
+
+2) OR -or -o
+3) NOT -not !
+4)Nawiasy (), nawiasy są znakami specjalnymi więc należy je wyescapować z użyciem '' lub odwrotnego ukośnika \
+
+
+
+
+# Uprawnienia
+Istnieje 9 bitów uprawnień: bity 1–3 przeznaczone są dla właściciela, bity 4–6 dla właściciela grupowego, a bity 7–9 dla pozostałych tzn.:
+rwxrwxrwx
+uuugggooo
+7  7  7
+r - 4
+w - 2
+x - 1
+(co wynika z położenia bitów kolejno od lewej 4 2 1)

@@ -25,6 +25,7 @@ ls -t #sorts by time of last modification(latest first)
 #LINKS
 ln -s -create symlinks (two parameters
 ln - create links
+-links 2 - check if file have two links(hard links)
 
 #REMOVE
 rm - remove file
