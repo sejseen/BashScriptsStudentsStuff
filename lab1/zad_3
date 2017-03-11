@@ -1,0 +1,12 @@
+#!/bin/bash 
+
+DIRECTORY_PATH=$1
+
+for file in $DIRECTORY_PATH*; 
+do
+	if [[ -x "$file" ]]; then
+    		echo "File '$file' is executable"
+	else
+		rm "$file"
+	fi	
+done

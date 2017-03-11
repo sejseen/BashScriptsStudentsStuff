@@ -1,0 +1,19 @@
+#!/bin/bash 
+echo ”Enter path:” 
+read USERPATH 
+echo ”Your path is: $USERPATH” 
+
+	for f in $USERPATH;
+	 do
+		echo $f
+		if [${f: -4} == ".old"] ; then
+			[ -f "$f" ] && rm "$f"
+			echo ”Delete : $f”
+		
+		else
+		   	mv $f $f.old
+		  	echo ”Rename to : "$f.old"”
+
+		fi	
+	 done
+

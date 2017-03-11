@@ -1,0 +1,13 @@
+#!/bin/bash
+
+DIRECTORY_PATH=$1
+
+echo "Podana sciezka: $DIRECTORY_PATH"
+for file in $DIRECTORY_PATH; 
+do
+echo "${file#*.}"
+	if [ -s $file ]; then
+	echo "${file#*.}" > "deleted.txt"
+	rm -f $file; 
+	fi
+done

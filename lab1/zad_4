@@ -1,0 +1,15 @@
+#!/bin/bash 
+
+DIRECTORY_PATH=$1
+ITERATOR=0
+
+
+for file in $DIRECTORY_PATH*; 
+do
+	if [[ -x "$file" ]]; then
+			mv $file $file.{$ITERATOR}		
+		else 
+	echo $ITERATOR
+	((ITERATOR+=1)) #Increment variable
+		fi
+	done

@@ -1,0 +1,15 @@
+#!/bin/bash 
+
+DIRECTORY_PATH=$1
+SETTED_EXTENSION=$2
+
+for file in $DIRECTORY_PATH*; 
+do
+	FILENAME=$(basename "$file")
+	EXTENSION="${filename##*.}"
+	FILENAME="${filename%.*}"
+	if [ "${file: -4}" == "$SETTED_EXTENSION" ]; then
+		echo $FILENAME >> content.txt
+		cat *.${SETTED_EXTENSION} >> content.txt
+	fi
+done

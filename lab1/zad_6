@@ -1,0 +1,17 @@
+#!/bin/bash
+
+NAME_OF_FILE=$1 #Plik z lista plikow do polaczenia
+
+HEADER=
+echo $HEADER >> content.txt
+
+while read; p do 
+FILENAME=$(basename "$p")
+FILENAME="${p%.*}"
+echo $FILENAME >> content.txt
+cat p >> content.txt
+done <$NAME_OF_FILE
+
+
+
+

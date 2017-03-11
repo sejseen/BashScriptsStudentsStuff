@@ -1,0 +1,14 @@
+#!/bin/bash 
+
+SOURCE_DIR=$1
+DESTINATION_DIR=$2
+
+for file in $SOURCE_DIR*; 
+do
+	if [[ -x "$file" ]]; then
+		echo "mv $file $DESTINATION_DIR"
+		mv $file $DESTINATION_DIR
+	fi
+done
+
+

@@ -1,0 +1,14 @@
+#!/bin/bash 
+
+DIRECTORY_PATH=$1
+FILE_TO_CREATE=$2
+
+for file in $DIRECTORY_PATH*
+do
+		if [ -f "$FILE_TO_CREATE" ]; then
+			echo "$FILE_TO_CREATE exist" 
+		else
+		touch $FILE_TO_CREATE
+		fi
+			
+	done
