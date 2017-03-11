@@ -4,7 +4,7 @@
 # przerobić na wiązania symboliczne (jeden zostawić - pozostałe symboliczne - ze ściezka względną)
 # ============================
 # example:
-# ./zad1 .
+# ./test_zad1.sh .
 # ============================
 
 if [ $# -ne 1 -o ! -d $1 ]; then
