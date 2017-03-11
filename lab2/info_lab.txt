@@ -1,0 +1,35 @@
+Temat: Ścieżki bez/względne, kanoniczne, dowiązania symboliczne.
+
+Informacje:
+-ścieżka bezwlędna(absolute path)- zaczyna się prawie zawsze od / czyli korzenia systemu plików. Jest niezależna od aktualnego położenia katalogu roboczego
+
+-ścieżka względna(relative path) - zaczyna się od innego znaku niż /
+Liczona jest względem pewnego punktu w systemie plików. Normalnie tym punktem jest katalog roboczy (CWD)
+
+-ścieżka kanoniczna (cannonical path) - najkrótsza pod względem ukośników / (nie pod względem ilości znaków) ścieżką do pliku. Często polega na usunięcu dowiązań symbolicznych oraz odwołań typu '.' '..'. Aby utworzyć ścieżkę kanoniczną można wywołać polecenie realpath.(Polecenie przekształca ścieżkę na ścieżkę kanoniczną)
+
+Polecenia:
+basename - uzyskanie elementu po ostatnim ukośniku
+dirname - uzyskanie elementu przed ostatnim ukośnikiem
+
+-dowiązania symboliczne(symlink) - zawartością symlinków jest po prostu ścieżka. Próba otwarcia dowiązania symbolicznego spowoduje próbę otwarcia pliku danego ścieżką zapisaną w tym dowiązaniu. Zapisana ścieżka może być względna lub bezwlędna. W przypadku zawartości ścieżki względnego, nie jest ona liczona od CWD(katalogu roboczego) a od POŁOŻENIA DOWIĄZANIA SYMBOLICZNEGO
+
+
+-Zarządzanie symlinkami oraz komendy z tym związane:
+readlink - odczytanie zawartości symlinku(gdy plik na którym zostanie wywołana komenda nie jest symlinkiem zwróci pusty łańcuch)
+
+rm - usunięcie symlinku
+
+ln -s - utworzenie dowiązania symbolicznego(bez -s dowiązanie twarde
+*Przyjmuje dwa argumenty 
+1) Zawartość dowiązania (cel, ścieżka do celu) Podajemy albo względną albo bezwzględną, przy czym przy podawaniu względnej trzeba podać ścieżkę względem aktualnego położenia dowiązania
+2) ścieżka w której należy stworzyć dowiązanie. Ścieżka ta musi być poprawna, tj istnieją podane katalogi
+
+-dowiązania twarde - Dany plik może mieć kilka ścieżek dostępu, wówczas mówimy że jedno z nich jest dowiązaniem twardym drugiego. Plik fizycznie nie zostanie usunięty z SO jeśli istnieje do niego co najmniej jedno dowiązanie twarde wskazujące na ten plik. Nie ma znaczenia które dowiązanie zostało utworzone pierwsze.
+!!!
+test -ef pozwoli sprawdzić czy pliki są dla siebie dowiązaniami twardymi
+
+Jedyną pozostałą kwestią jest sposób tworzenia dowiązań twardych. Jest on podobny, ale nie identyczny do tworzenia dowiązań symbolicznych. Po pierwsze, przy tworzeniu linków twardych nie podajemy opcji -s. Po drugie, przy tworzeniu dowiązań twardych co prawda podajemy ścieżke, do celu dowiazania, alesystem nie zapisuje tej ścieżki w dowiązaniu, a jedynie używa jej do znalezie-
+nia odpowiedniego numeru i-węzła, do którego dowiązanie będzie się odwoływać.Konsekwencje tego są dwie: 1) cel dowiązania musi istnieć oraz 2) jeśli cel dowiązania jest podany ścieżką względną, to jest ona liczona standardowo względem aktualnego CWD (czyli inaczej niż dla dowiązań symbolicznych).
+
+

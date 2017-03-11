@@ -1,0 +1,31 @@
+#Polecenia
+
+1 if [[ ]] then # if statement
+
+#- check if directory exists/not
+if [[ (!) -d "$DIRECTORY" ]]; then
+  
+#- check if file exists/not
+if [ -f "$file" ]
+
+
+2 for file in path/* #loop statement
+	do
+
+	done
+
+#LIST
+ls # list files
+ls -a #with hidden files
+ls -c #with date of last modification
+ls -i #display the i-node number
+ls -l #display mode, number of links, owner, group, size, time of last modification
+ls -t #sorts by time of last modification(latest first)
+
+#LINKS
+ln -s -create symlinks (two parameters
+ln - create links
+
+#REMOVE
+rm - remove file
+rm -rf -remove dir
