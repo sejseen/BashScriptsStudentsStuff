@@ -4,7 +4,7 @@
 # symbloiczne w kopii wskazywały na te same obiekty co w katalogu pierwotnym
 # ============================
 # example:
-# ./zad2 .
+# ./test_zad2.sh .
 # ============================
 
 if [ $# -ne 2 ]; then
