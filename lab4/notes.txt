@@ -1,0 +1,36 @@
+Laboratorium nr 4 Potoki w systemach Unixowych:
+
+Poniżej znajduję się lista komend pomocnych przy pracy z potokami.
+
+-sort (sortuje dane linia po linii)
+
+-rev (odwraca kolejność linii, może być używane wspólnie z sortem w celu wyświetlenia danych w odwrotnej kolejności)
+
+-uniq (domyślnie usuwa powtarzające się linie, działa bardzo naiwnie patrząc czy linie różnią się od poprzedniej, tak więc dane muszą być posortowane)
+
+-head (wypisuje N pierwszych linii, domyślnie 10)
+
+-tail (analogicznie jak head, tylko końcowe)
+
+-grep (filtrowanie danych)
+
+
+
+Przykład pętli 'while' przystosowanej do pracy z potokami:
+
+var=10
+	while [ $var -gt 0 ]
+	do
+		echo $var
+		var=$[var-1]
+	done
+
+
+While+read
+Możemy teraz użyć obu opisanych komend by przetworzyć wyjście
+finda w potoku:
+
+find | while read jakies zmienne
+	do
+	(...)
+	done

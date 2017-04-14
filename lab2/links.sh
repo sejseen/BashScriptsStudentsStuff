@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $# -ne 1 -o ! -d $2 ]; then
+if [ $# -ne 2 -o ! -d $2 ]; then
 	echo Błędny katalog lub liczba argumentów
 	exit
 fi	

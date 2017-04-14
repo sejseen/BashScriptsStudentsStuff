@@ -14,4 +14,8 @@ if [ $# -ne 1 -o ! -d $1 ]; then
 	exit
 fi	
 
+diff $sciezka1 $sciezka2 | sort | uniq -u | while read x; do
+  echo $x;
+done;
+
 find $1 -type d \( -name '*.git' -or -name '*.svn' \) -and -mtime -30
